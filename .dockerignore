@@ -1,0 +1,11 @@
+#Ignoring Git files
+.git
+.gitignore
+
+#Ignoring the other files 
+Dockerfile
+LICENCE
+README.md
+
+#Ignoring binaries
+target
