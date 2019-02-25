@@ -26,7 +26,7 @@ RUN mvn -B -s /usr/share/maven/ref/settings-docker.xml package \
 
 FROM java:8-jre-alpine
 
-RUN mkdir /app
+RUN mkdir /app /TestResults
 
 #getting the dependencies lib in the application
 COPY --from=build /tmp/target/BOOT-INF/lib /app/lib
@@ -34,5 +34,8 @@ COPY --from=build /tmp/target/META-INF /app/META-INF
 
 #Getting the application class
 COPY --from=build /tmp/target/BOOT-INF/classes /app
+
+#copy unit test case results
+COPY --from=build /tmp/target/surefire-reports/*.xml /TestResults/test_results.xml
 
 ENTRYPOINT ["java","-cp","app:app/lib/*","com.prefab.services.spring.boot.Application"]
