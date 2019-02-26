@@ -1,0 +1,13 @@
+version: '3.1'
+ 
+services:
+  prefab-spring-boot:
+    image: "ps/prefab-spring-boot:v${BUILD_NUMBER}"
+  integration:
+    depends_on:
+      - prefab-spring-boot
+    image: "ps/prefab-spring-boot:test-v${BUILD_NUMBER}"
+    build:
+      context: .
+      dockerfile: Dockerfile.Integration
+    
