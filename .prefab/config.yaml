@@ -1,0 +1,6 @@
+##Configuration for the prefab cli
+--- 
+- REPOSITORY_NAME
+- PROJECT_NAME
+- PACKAGE_NAME
+- APPLICATION_NAME
