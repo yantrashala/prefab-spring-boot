@@ -4,8 +4,6 @@
 
 #Ignoring the other files 
 Dockerfile
-Dockerfile.Integration
-docker-compose.integration.yml
 LICENCE
 README.md
 
