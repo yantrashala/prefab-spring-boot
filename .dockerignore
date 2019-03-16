@@ -1,8 +1,12 @@
-#Ignoring Git files
+#Ignoring Git and project files
 .git
 .gitignore
+.project
+.classpath
+.prefab
 
 #Ignoring the other files 
+Jenkinsfile
 Dockerfile
 LICENCE
 README.md

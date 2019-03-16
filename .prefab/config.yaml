@@ -1,6 +1,10 @@
-##Configuration for the prefab cli
+#Configuration for the prefab cli
 --- 
-- REPOSITORY_NAME
-- PROJECT_NAME
-- PACKAGE_NAME
-- APPLICATION_NAME
+## This is used for tagging the docker repository
+-!!str IMAGE_REPO: !!str ps
+
+## This is used for tagging the docker image
+-!!str SERVICE_NAME: !!str prefab-spring-boot
+
+## This is used for exposing the service port
+-!!str SERVICE_PORT: !!int 8080
