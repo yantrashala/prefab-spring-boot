@@ -21,12 +21,14 @@ RUN mvn -B -s /usr/share/maven/ref/settings-docker.xml package \
 	&& cd target \
 	&& jar -xvf *.jar
 
+#Copying the run script
+COPY scripts /tmp/scripts
 
 #Building the application layer
-
 FROM java:8-jre-alpine
 
-RUN mkdir /app /TestResults
+#Creating the directories for application and test results
+RUN mkdir -p /app /scripts /TestResults
 
 #getting the dependencies lib in the application
 COPY --from=build /tmp/target/BOOT-INF/lib /app/lib
@@ -38,4 +40,7 @@ COPY --from=build /tmp/target/BOOT-INF/classes /app
 #copy unit test case results
 COPY --from=build /tmp/target/surefire-reports/*.xml /TestResults/test_results.xml
 
-ENTRYPOINT ["java","-cp","app:app/lib/*","com.prefab.services.spring.boot.Application"]
+#Getting the entrypoint script
+COPY --from=build /tmp/scripts /scripts
+RUN dos2unix /scripts/*.sh
+ENTRYPOINT ["sh", "/scripts/dockerRun.sh"]
