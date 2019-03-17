@@ -12,31 +12,41 @@ A scaffold code for the java spring boot service
 > cd prefab-spring-boot
 ```
 
-### Build in docker (suggested)
+### Docker Build (suggested)
 
 ````
 > cd prefab-spring-boot
 > docker build -t ps/prefab-spring-boot:latest .
+````
 
 ### Run Docker Image
 
-#### There are two port 8080 for the service and 8081 for monitoring
-##### Monitoring (info/health/metrics)
-
-Info Endpoint -> localhost:8081/monitor/info
-Heath Endpoint -> localhost:8081/monitor/health
-Metrics Endpoint -> localhost:8081/monitor/metrics
-
-Business Metric for Greeting --> localhost:8081/monitor/metrics/greeting
-...
-
-##### Service 
-Swagger UI Endpoint -> localhost:8080/swagger-ui.html
-Greeting Service Endpoint -> localhost:8080/greet?name=User
+```
+There are two port 8080 (service) and 8081 (monitoring)
 
 > docker run --rm -p8080:8080 -p8081:8081 -it  ps/prefab-spring-boot
+```
 
+#### Service Endpoints
 
+```
+> Swagger UI Endpoint -> localhost:8080/swagger-ui.html
+> Greeting Service Endpoint -> localhost:8080/greet?name=User
+```
+
+#### Monitoring Endpoints
+
+```
+> Info Endpoint -> localhost:8081/monitor/info
+> Heath Endpoint -> localhost:8081/monitor/health
+> Metrics Endpoint -> localhost:8081/monitor/metrics
+
+> Business Metric for Greeting --> localhost:8081/monitor/metrics/greeting
+```
+
+#### Service Logs
+
+```
  .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
@@ -67,3 +77,4 @@ Greeting Service Endpoint -> localhost:8080/greet?name=User
 2019-03-16 20:44:32.140  INFO 7 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-03-16 20:44:32.140  INFO 7 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-03-16 20:44:32.166  INFO 7 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 25 ms
+```
