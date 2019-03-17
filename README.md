@@ -12,15 +12,29 @@ A scaffold code for the java spring boot service
 > cd prefab-spring-boot
 ```
 
-### Build and Run in docker (suggested)
+### Build in docker (suggested)
 
 ````
 > cd prefab-spring-boot
 > docker build -t ps/prefab-spring-boot:latest .
 
+### Run Docker Image
+
+#### There are two port 8080 for the service and 8081 for monitoring
+##### Monitoring (info/health/metrics)
+
+Info Endpoint -> localhost:8081/monitor/info
+Heath Endpoint -> localhost:8081/monitor/health
+Metrics Endpoint -> localhost:8081/monitor/metrics
+
+Business Metric for Greeting --> localhost:8081/monitor/metrics/greeting
 ...
 
-> docker run --rm -p8080:8080 -it  ps/prefab-spring-boot
+##### Service 
+Swagger UI Endpoint -> localhost:8080/swagger-ui.html
+Greeting Service Endpoint -> localhost:8080/greet?name=User
+
+> docker run --rm -p8080:8080 -p8081:8081 -it  ps/prefab-spring-boot
 
 
  .   ____          _            __ _ _
