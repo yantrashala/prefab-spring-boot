@@ -9,35 +9,39 @@
 
 package com.prefab.services.springboot.model;
 
-/**
- * Represents the Greeting Service
- * 
- */
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "Class Represeting the Greeting for a user")
 public class Greeting {
 
+	@ApiModelProperty(notes = "Visitor id of user", example = "1", required = true, position = 0)
 	private final long id;
-    private final String content;
+	
+	@ApiModelProperty(notes = "Greeting message for the user", example = "Welcome John", required = true, position = 1)
+    private final String message;
 
- 	public Greeting(long id, String content) {
+ 	public Greeting(long id, String message) {
 		super();
 		this.id = id;
-		this.content = content;
+		this.message = message;
 	}
 
 	public long getId() {
 		return id;
 	}
 
-	public String getContent() {
-		return content;
+
+	public String getMessage() {
+		return message;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((content == null) ? 0 : content.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((message == null) ? 0 : message.hashCode());
 		return result;
 	}
 
@@ -50,19 +54,19 @@ public class Greeting {
 		if (getClass() != obj.getClass())
 			return false;
 		Greeting other = (Greeting) obj;
-		if (content == null) {
-			if (other.content != null)
-				return false;
-		} else if (!content.equals(other.content))
-			return false;
 		if (id != other.id)
+			return false;
+		if (message == null) {
+			if (other.message != null)
+				return false;
+		} else if (!message.equals(other.message))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Greeting [id=" + id + ", content=" + content + "]";
+		return "Greeting [id=" + id + ", message=" + message + "]";
 	}
     
     

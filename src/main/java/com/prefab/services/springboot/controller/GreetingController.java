@@ -20,6 +20,7 @@ import com.prefab.services.springboot.service.GreetingService;
 
 import io.micrometer.core.annotation.Timed;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponses;
 import io.swagger.annotations.ApiResponse;
 
@@ -36,9 +37,10 @@ public class GreetingController {
 
 	@RequestMapping(method = RequestMethod.GET, value = "/greet")
 	@ApiOperation(value = "Returns Greeting to User")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success response"),
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success. User is greeted"),
 							@ApiResponse(code = 500, message = "Internal server error") })
-	public  Greeting greet( @RequestParam(value="name", required=true) String name ) {
+	public  Greeting greet( @ApiParam("User name to be greeted")
+							@RequestParam(value="name", required=true) String name ) {
 		return greetingService.greet(name);
 	}
 
