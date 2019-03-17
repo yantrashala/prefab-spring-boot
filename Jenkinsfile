@@ -8,7 +8,7 @@ node('docker') {
         
     stage 'Publish UnitTest Reports'
         containerID = sh (
-            script: "docker run -d -p${SERVICE_PORT}:${SERVICE_PORT} ${IMAGE_REPO}/${SERVICE_NAME}:v${BUILD_NUMBER}", 
+            script: "docker run -d -p${SERVICE_PORT}:8080 -p${MONITOR_PORT}:8081 ${IMAGE_REPO}/${SERVICE_NAME}:v${BUILD_NUMBER}", 
         returnStdout: true
         ).trim()
         echo "Container ID is ==> ${containerID}"

@@ -32,7 +32,8 @@ RUN mkdir -p /app /scripts /TestResults
 
 #getting the dependencies lib in the application
 COPY --from=build /tmp/target/BOOT-INF/lib /app/lib
-COPY --from=build /tmp/target/META-INF /app/META-INF
+COPY --from=build /tmp/target/META-INF /app/META-INF 
+RUN rm -rf /app/META-INF/maven
 
 #Getting the application class
 COPY --from=build /tmp/target/BOOT-INF/classes /app
