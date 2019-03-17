@@ -8,3 +8,6 @@
 
 ## This is used for exposing the service port
 -!!str SERVICE_PORT: !!int 8080
+
+## This is used for exposing the monitor port
+-!!str MONITOR_PORT: !!int 8081
