@@ -4,11 +4,11 @@ node('docker') {
         checkout scm
 
     stage 'Build & UnitTest'
-        sh "docker build -t ${IMAGE_REPO}/${SERVICE_NAME}:v${BUILD_NUMBER} -f Dockerfile ."
+        sh "docker build -t {{.Config.IMAGE_REPO}/{{.Config.SERVICE_NAME}:v${BUILD_NUMBER} -f Dockerfile ."
         
     stage 'Publish UnitTest Reports'
         containerID = sh (
-            script: "docker run -d -p${SERVICE_PORT}:8080 -p${MONITOR_PORT}:8081 ${IMAGE_REPO}/${SERVICE_NAME}:v${BUILD_NUMBER}", 
+            script: "docker run -d -p{{.Config.SERVICE_PORT}}:8080 -p{{.Config.MONITOR_PORT}:8081 {{.Config.IMAGE_REPO}}/{{.Config.SERVICE_NAME}}:v${BUILD_NUMBER}", 
         returnStdout: true
         ).trim()
         echo "Container ID is ==> ${containerID}"
