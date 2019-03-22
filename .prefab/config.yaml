@@ -2,11 +2,11 @@
 
 IMAGE_REPO:
   default: prefab
-  prompt: "Repository name for Image tagging"
+  prompt: "Repository name for Image"
 
 SERVICE_NAME:
   default: prefab-spring-boot
-  prompt: "Service name for Image tagging"
+  prompt: "Service name"
 
 SERVICE_PORT: 
   default: 8080
@@ -14,4 +14,4 @@ SERVICE_PORT:
 
 MONITOR_PORT: 
   default: 8081
-  prompt: "Monitor port"
+  prompt: "Service monitor port"
