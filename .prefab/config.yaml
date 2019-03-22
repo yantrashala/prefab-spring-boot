@@ -1,17 +1,17 @@
 #Configuration for the prefab cli
---- 
--IMAGE_REPO :
- -default : prefab
- -prompt : "Repository name for Image tagging"
 
--SERVICE_NAME :
- -default : prefab-spring-boot
- -prompt : "Service name for Image tagging"
+IMAGE_REPO:
+  default: prefab
+  prompt: "Repository name for Image tagging"
 
--SERVICE_PORT : 
- -default : 8080
- -prompt : "Service port"
+SERVICE_NAME:
+  default: prefab-spring-boot
+  prompt: "Service name for Image tagging"
 
--MONITOR_PORT: 
- -default : 8081
- -prompt : "Monitor port"
+SERVICE_PORT: 
+  default: 8080
+  prompt: "Service port"
+
+MONITOR_PORT: 
+  default: 8081
+  prompt: "Monitor port"
