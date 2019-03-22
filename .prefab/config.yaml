@@ -1,13 +1,17 @@
 #Configuration for the prefab cli
 --- 
-## This is used for tagging the docker repository
--!!str IMAGE_REPO: !!str prefab
+-IMAGE_REPO :
+ -default : prefab
+ -prompt : Repository name for Image tagging
 
-## This is used for tagging the docker image
--!!str SERVICE_NAME: !!str prefab-spring-boot
+-SERVICE_NAME :
+ -default : prefab-spring-boot
+ -prompt : Service name for Image tagging
 
-## This is used for exposing the service port
--!!str SERVICE_PORT: !!int 8080
+-SERVICE_PORT : 
+ -default : 8080
+ -prompt : Service port
 
-## This is used for exposing the monitor port
--!!str MONITOR_PORT: !!int 8081
+-MONITOR_PORT: 
+ -default : 8081
+ -prompt : Monitor port
